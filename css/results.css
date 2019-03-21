@@ -1,0 +1,61 @@
+.results > tr {
+  height: calc(100%/8);
+}
+
+.results > tr > td {
+  padding: 0;
+
+  vertical-align: center;
+  text-align: center;
+
+  font-family: monospace;
+  font-weight: bold;
+
+  border: 2px solid black;
+
+  word-wrap: break-word;
+}
+
+.results > tr > td > table {
+  border-spacing: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.results > tr > td > table > tr {
+  height: calc(100%/8);
+}
+
+.results > tr > td > table > tr > td {
+  vertical-align: center;
+  text-align: center;
+
+  font-family: monospace;
+  font-weight: bold;
+
+  border: 1px solid black;
+
+  font-size: 2em;
+
+  word-wrap: break-word;
+}
+
+.header {
+  font-size: 5em;
+}
+
+.golden {
+  background-image: linear-gradient(to bottom right, gold, goldenrod, gold);
+  color: white;
+}
+
+.silver {
+  background-image: linear-gradient(to bottom right, darkgrey, lightgrey, darkgrey);
+  color: white;
+}
+
+.bronze {
+  background-image: linear-gradient(to bottom right, sienna, chocolate, sienna);
+  color: white;
+}

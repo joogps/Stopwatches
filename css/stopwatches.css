@@ -1,0 +1,47 @@
+.stopwatches > tr {
+  height: calc(100% / 7);
+}
+
+.stopwatches > tr > td {
+  vertical-align: center;
+  text-align: center;
+
+  font-family: monospace;
+  font-weight: bold;
+
+  border: 2px solid black;
+
+  word-wrap: break-word;
+}
+
+.group {
+  font-size: 5em;
+}
+
+.time {
+  font-size: 3em;
+}
+
+.controller > button {
+  width: 100%;
+  height: 100%;
+
+  font-size: 4em;
+  font-weight: bold;
+
+  color: white;
+
+  border: none;
+}
+
+.start {
+  background-image: linear-gradient(to bottom right, lightgreen, lawngreen);
+}
+
+.finish {
+  background-image: linear-gradient(to bottom right, salmon, red);
+}
+
+.restart {
+  background-image: linear-gradient(to bottom right, gainsboro, silver);
+}
