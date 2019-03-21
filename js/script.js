@@ -1,10 +1,10 @@
 var config = {
-	apiKey: "AIzaSyBDEyHyqlyZpFdUPa5nC5-rpRgqP6V38Wg",
-	authDomain: "corrida-de-orien-1551377672387.firebaseapp.com",
-	databaseURL: "https://corrida-de-orien-1551377672387.firebaseio.com",
-	projectId: "corrida-de-orien-1551377672387",
-	storageBucket: "corrida-de-orien-1551377672387.appspot.com",
-	messagingSenderId: "514777290502"
+	apiKey: "AIzaSyA1tVOKl19VlXVIUAi2Z8W6XAvpYr3fM1E",
+	authDomain: "stopwatches-5712f.firebaseapp.com",
+	databaseURL: "https://stopwatches-5712f.firebaseio.com",
+	projectId: "stopwatches-5712f",
+	storageBucket: "stopwatches-5712f.appspot.com",
+	messagingSenderId: "971581185007"
 };
 firebase.initializeApp(config);
 
