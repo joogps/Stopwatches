@@ -14,21 +14,21 @@ class Stopwatch {
 			}
 
 			if(stopwatch.stop)
-				stopwatch.controller.html("Reiniciar").removeClass().addClass("restart");
+				stopwatch.controller.html("Restart").removeClass().addClass("restart");
 			else if(stopwatch.start)
-				stopwatch.controller.html("Terminar").removeClass().addClass("finish");
+				stopwatch.controller.html("Stop").removeClass().addClass("stop");
 			else
-				stopwatch.controller.html("Começar").removeClass().addClass("start");
+				stopwatch.controller.html("Start").removeClass().addClass("start");
 			
 			stopwatch.controller.click(function() {stopwatch.controllerClick()});
 		})
 
 		if(this.stop)
-			this.controller.html("Reiniciar").removeClass().addClass("restart");
+			this.controller.html("Restart").removeClass().addClass("restart");
 		else if(this.start)
-			this.controller.html("Terminar").removeClass().addClass("finish");
+			this.controller.html("Stop").removeClass().addClass("stop");
 		else
-			this.controller.html("Começar").removeClass().addClass("start");
+			this.controller.html("Start").removeClass().addClass("start");
 
 
 		setInterval(function() {
@@ -89,13 +89,13 @@ class Stopwatch {
 	controllerClick() {
 		if(!this.start) {
 			this.setStart();
-			this.controller.html("Terminar").removeClass().addClass("finish");
+			this.controller.html("Stop").removeClass().addClass("stop");
 		} else if(!this.stop) {
 			this.setStop();
-			this.controller.html("Reiniciar").removeClass().addClass("restart");
-		} else if(confirm("Reiniciar cronômetro?")) {
+			this.controller.html("Restart").removeClass().addClass("restart");
+		} else if(confirm("Restart stopwatch?")) {
 			this.restart();
-			this.controller.html("Começar").removeClass().addClass("start");
+			this.controller.html("Start").removeClass().addClass("start");
 		}
 
 		this.reference.set({
