@@ -19,7 +19,7 @@ $(function() {
 	for(var i = 1; i <= 6; i++) {
 		let tableRow = $("<tr>");
 
-		let group = $("<td>").addClass("group").html("Grupo "+i);
+		let group = $("<td>").addClass("group").html("Stopwatch "+i);
 		let time = $("<td>").addClass("time");
 		let controller = $("<td>").addClass("controller").append($("<button>"));
 
@@ -31,7 +31,7 @@ $(function() {
 		table.append(tableRow);
 	}
 
-	let results = $("<tr>").append($("<td>").addClass("show-results").attr("colspan", "3").append($("<button>").html("Resultados")));
+	let results = $("<tr>").append($("<td>").addClass("show-results").attr("colspan", "3").append($("<button>").html("Results")));
 	$(table).append(results);
 
 	results.find("td").find("button").click(function() {
@@ -55,7 +55,7 @@ $(function() {
 			
 			let table = $("<table>").addClass("results");
 
-			let header = $("<tr>").append($("<td>").addClass("header").attr("colspan", "3").html("Resultados"));
+			let header = $("<tr>").append($("<td>").addClass("header").attr("colspan", "3").html("Results"));
 			table.append(header);
 
 			for(let [i, stopwatch] of stopwatches.entries()) {
@@ -63,20 +63,20 @@ $(function() {
 				let group = stopwatch.element.parent().find(".group");
 				let time = stopwatch.element;
 
-				let start = $("<tr>").append($("<td>").html("➡ "+stopwatch.formatTime(stopwatch.start)));
-				let end = $("<tr>").append($("<td>").html("⬅ "+stopwatch.formatTime(stopwatch.stop)));
+				let start = $("<tr>").append($("<td>").html("Start: "+stopwatch.formatTime(stopwatch.start)));
+				let end = $("<tr>").append($("<td>").html("Stop: "+stopwatch.formatTime(stopwatch.stop)));
 				let startend = $("<td>").append($("<table>").append(start).append(end));
 
 				row.append(group).append(time).append(startend);
 				table.append(row);
 			}
 
-			let restart = $("<tr>").append($("<td>").addClass("restart-results").attr("colspan", "3").append($("<button>").html("Reiniciar")));
+			let restart = $("<tr>").append($("<td>").addClass("restart-results").attr("colspan", "3").append($("<button>").html("Restart")));
 			table.append(restart);
 
 			restart.click(function() {
-				if(confirm("Reiniciar todos os cronômetros?")) {
-					if(confirm("Tem certeza? Todos os dados serão perdidos.")) {
+				if("Restart all stopwatches?")) {
+					if(confirm("Are you sure? All data will be lost.")) {
 						database.ref("/").set({});
 						location.reload();
 					}
