@@ -13,7 +13,6 @@ var database = firebase.database();
 let stopwatches = [];
 
 $(function() {
-
 	let table = $("<table>").addClass("stopwatches");
 
 	for(var i = 1; i <= 6; i++) {
