@@ -111,7 +111,7 @@ class Stopwatch {
 		let hours = pad(date.getHours(), 2);
 		let minutes = pad(date.getMinutes(), 2);
 		let seconds = pad(date.getSeconds(), 2);
-		let milliseconds = pad(date.getMilliseconds(), 2);
+		let milliseconds = pad(date.getMilliseconds(), 3);
 
 		return hours+":"+minutes+":"+seconds+"."+milliseconds;
 	}
