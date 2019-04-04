@@ -62,8 +62,9 @@ class Stopwatch {
 		return this.difference;
 	}
 
-	formatStopwatch() {
-		let time = this.getDifference()%(24*60*60*1000);
+	formatStopwatch(time) {
+		time%= 24*60*60*1000;
+		time = Math.round(time);
 
 		let milliseconds = time;
 		let seconds = Math.floor(milliseconds/1000);
@@ -81,7 +82,7 @@ class Stopwatch {
 
 	setTime() {
 		if(this.start)
-			this.element.html(this.formatStopwatch());
+			this.element.html(this.formatStopwatch(this.getDifference()));
 		else
 			this.element.html("00:00:00.000");
 	}

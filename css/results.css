@@ -1,7 +1,3 @@
-.results > tr {
-  height: calc(100%/8);
-}
-
 .results > tr > td {
   padding: 0;
 
@@ -36,13 +32,7 @@
 
   border: 1px solid black;
 
-  font-size: 2em;
-
   word-wrap: break-word;
-}
-
-.header {
-  font-size: 5em;
 }
 
 .golden {

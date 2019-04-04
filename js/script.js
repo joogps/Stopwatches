@@ -1,10 +1,10 @@
 var config = {
-	apiKey: "AIzaSyA1tVOKl19VlXVIUAi2Z8W6XAvpYr3fM1E",
-	authDomain: "stopwatches-5712f.firebaseapp.com",
-	databaseURL: "https://stopwatches-5712f.firebaseio.com",
-	projectId: "stopwatches-5712f",
-	storageBucket: "stopwatches-5712f.appspot.com",
-	messagingSenderId: "971581185007"
+	apiKey: "AIzaSyB8tfCs5WvbLmQ4dND1L2Eqgs8mBtaT5So",
+	authDomain: "stopwatch-8d91e.firebaseapp.com",
+	databaseURL: "https://stopwatch-8d91e.firebaseio.com",
+	projectId: "stopwatch-8d91e",
+	storageBucket: "stopwatch-8d91e.appspot.com",
+	messagingSenderId: "1041012173394"
 };
 firebase.initializeApp(config);
 
@@ -16,7 +16,7 @@ $(function() {
 	let table = $("<table>").addClass("stopwatches");
 
 	for(var i = 1; i <= 6; i++) {
-		let tableRow = $("<tr>");
+		let tableRow = $("<tr>").addClass("stopwatch-row");
 
 		let group = $("<td>").addClass("group").html("Stopwatch "+i);
 		let time = $("<td>").addClass("time");
@@ -57,10 +57,14 @@ $(function() {
 			let header = $("<tr>").append($("<td>").addClass("header").attr("colspan", "3").html("Results"));
 			table.append(header);
 
+			let totalTime = 0;
+
 			for(let [i, stopwatch] of stopwatches.entries()) {
-				let row = $("<tr>").addClass(i < 3 ? ["golden", "silver", "bronze"][i] : "");
+				let row = $("<tr>").addClass(i < 3 ? ["golden", "silver", "bronze"][i] : "").addClass("result");
 				let group = stopwatch.element.parent().find(".group");
 				let time = stopwatch.element;
+
+				totalTime+= parseInt(stopwatch.getDifference());
 
 				let start = $("<tr>").append($("<td>").html("Start: "+stopwatch.formatTime(stopwatch.start)));
 				let end = $("<tr>").append($("<td>").html("Stop: "+stopwatch.formatTime(stopwatch.stop)));
@@ -70,11 +74,15 @@ $(function() {
 				table.append(row);
 			}
 
+			let timeAverage = stopwatches[0].formatStopwatch(totalTime/stopwatches.length);
+			let average = $("<tr>").append($("<td>").attr("colspan", 3).html("Average: "+timeAverage).addClass("average"));
+			table.append(average);
+
 			let restart = $("<tr>").append($("<td>").addClass("restart-results").attr("colspan", "3").append($("<button>").html("Restart")));
 			table.append(restart);
 
 			restart.click(function() {
-				if("Restart all stopwatches?")) {
+				if("Restart all stopwatches?") {
 					if(confirm("Are you sure? All data will be lost.")) {
 						database.ref("/").set({});
 						location.reload();
@@ -83,8 +91,17 @@ $(function() {
 			});
 
 			$("body").append(table);
+
+			$(".result").fitText(1.75);
+			$(".result > td > table > tr > td").fitText(1.85);
+			$(".average").fitText(2.5);
+			$(".header").fitText(2);
+			$(".restart-results > button").fitText(2);
 		}
 	});
 
 	$("body").append(table);
+
+	$(".stopwatch-row > td, .stopwatch-row > td > button").fitText(1.5);
+	$(".show-results > button").fitText(1.75);
 })
